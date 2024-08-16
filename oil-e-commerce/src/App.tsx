@@ -7,12 +7,19 @@ import FeatureSectionBreakfast from "./components/FeatureSectionBreakfast"
 import Banner from "./components/Banner"
 import Feature from "./components/Feature"
 import Footer from "./components/Footer"
+import { CartContextProvider } from "./context/cartContext"
+import { useState } from "react"
+import Cart from "./components/Cart"
 
 const App = () => {
+  const [showCart, setShowCart] = useState(false)
+
   return (
+  <CartContextProvider>
+
     <main>
-      <Navbar />
-      <MobNavbar />
+      <Navbar setShowCart= {setShowCart} />
+      <MobNavbar setShowCart= {setShowCart} />
       <Hero />
       <Category />
       <FeatureSectionFruits />
@@ -20,7 +27,11 @@ const App = () => {
       <Banner/>
       <Feature/>
       <Footer />
+      {showCart && <Cart showCart={showCart} setShowCart={setShowCart}/>}
     </main>
+
+  </CartContextProvider>
+
   )
 }
 
