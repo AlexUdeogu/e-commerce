@@ -8,7 +8,7 @@ interface propsType{
 const CartCountBadge: React.FC<propsType> = ({size}) => {
     const { product } = useCartContext();
   return (
-    <div className={`absolute bg-red-600 text-white text-[14px] ${size} right-20 top-5 rounded-full grid place-items-center`}>
+    <div className={`absolute bg-red-600 text-white text-[14px] ${size} left-8  bottom-9 rounded-full grid place-items-center`}>
       {product.length}
     </div>
   )
